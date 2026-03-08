@@ -1,1 +1,51 @@
+import numpy as np
 
+x=np.array([0,1,2,3,4])
+y=np.array([2,3,5,4,6])
+#############################(definition of sum_i [x_i]^j)
+a_10=5
+
+a_11=0
+for i in range(len(y)):
+    a_11 = a_11 + x[i]
+
+a_12=0
+for i in range(len(y)):
+    a_12 = a_12 + x[i]**2
+    
+a_13=0
+for i in range(len(y)):
+    a_13 = a_13 + x[i]**3
+    
+a_14=0
+for i in range(len(y)):
+    a_14 = a_14 + x[i]**4
+    
+a_15=0
+for i in range(len(y)):
+    a_15 = a_15 + x[i]**5
+    
+a_16=0
+for i in range(len(y)):
+    a_16 = a_16 + x[i]**6
+#############################(definition of sum_i y_i[x_i]^j)
+b_10=0
+for i in range(len(y)):
+    b_10=b_10 + y[i]
+    
+b_11=0
+for i in range(len(y)):
+    b_11=b_11 + y[i]*x[i]
+
+b_12=0
+for i in range(len(y)):
+    b_12=b_12 + y[i]*(x[i]**2)
+    
+b_13=0
+for i in range(len(y)):
+    b_13=b_13 + y[i]*(x[i]**3)
+##############################(Linear equation solver)
+a = np.array([[a_10, a_11, a_12, a_13], [a_11, a_12, a_13,a_14],[a_12, a_13,a_14,a_15],[a_13,a_14,a_15,a_16]])
+b = np.array([b_10, b_11, b_12, b_13])
+x = np.linalg.solve(a, b)
+print(x)
