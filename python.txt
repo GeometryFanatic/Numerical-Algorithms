@@ -1,0 +1,9 @@
+import numpy as np
+
+x = np.array([1,1]) #You can add more entries to you array for the initial guess. 
+
+y = 0.01  #You can change the step-size to smaller or bigger
+
+for i in range(10): #you can add more iterations here
+    x = np.aubstract(x, y*np.array(2*x[0],2*x[1])) #use x[i] to get the i-th component of the gradient
+print(x)
